@@ -1,3 +1,4 @@
+import chatterbot
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
@@ -15,10 +16,11 @@ conversa.train([
     'Vou lhe treinar melhor Alfred!',
     'Fico feliz em ser util!',
 ])
-
+usuario=input("Bom dia! Qual o seu nome? ")
+print("Faça uma pergunta!")
 while True:
     try:
-        resposta = bot.get_response(input("Usuário: "))
+        resposta = bot.get_response(input(usuario + ": "))
         if float(resposta.confidence) > 0.5:
             print("Alfred: ", resposta)
         else:
